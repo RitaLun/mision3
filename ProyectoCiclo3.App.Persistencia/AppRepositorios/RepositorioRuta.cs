@@ -14,17 +14,18 @@ namespace ProyectoCiclo3.App.Persistencia.AppRepositorios
         {
             ruta= new List<Ruta>()
             {
-                new Ruta{id=1,origen="Audi",destino= 2020,tiempoEstimado= 4},
-                new Ruta{id=2,origen="Toyota",destino= 2021,tiempoEstimado= 16},
-                new Ruta{id=3,origen="Mazda",destino= 2000,tiempoEstimado= 24}
+                new Ruta{id=1,origen="Roma",destino= "Londres",tiempoEstimado= 4 },
+                new Ruta{id=2,origen="Sydney",destino= "Alemania",tiempoEstimado= 5},
+                new Ruta{id=3,origen="Rusia",destino= "Brasil",tiempoEstimado= 6}
             };
- 
+        }
+
         public IEnumerable<Ruta> GetAll()
         {
             return ruta;
         }
  
-        public Ruta GetBusWithId(int id){
+        public Ruta GetRutaWithId(int id){
             return ruta.SingleOrDefault(b => b.id == id);
         }
     }
