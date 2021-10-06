@@ -25,8 +25,8 @@ namespace ProyectoCiclo3.App.Persistencia.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("ciudad")
-                        .HasColumnType("int");
+                    b.Property<string>("ciudad")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("coordenaX")
                         .HasColumnType("int");
@@ -37,8 +37,8 @@ namespace ProyectoCiclo3.App.Persistencia.Migrations
                     b.Property<string>("nombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("pais")
-                        .HasColumnType("int");
+                    b.Property<string>("pais")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
@@ -82,8 +82,8 @@ namespace ProyectoCiclo3.App.Persistencia.Migrations
                     b.Property<int>("destino")
                         .HasColumnType("int");
 
-                    b.Property<string>("origen")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("origen")
+                        .HasColumnType("int");
 
                     b.Property<int>("tiempoEstimado")
                         .HasColumnType("int");
