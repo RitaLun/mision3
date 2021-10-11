@@ -7,26 +7,45 @@ namespace ProyectoCiclo3.App.Persistencia.AppRepositorios
 {
     public class RepositorioAeropuerto
     {
-        List<Aeropuerto> aeropuerto;
- 
-    public RepositorioAeropuerto()  
-        {
-            aeropuerto= new List<Aeropuerto>()
-            {
-                new Aeropuerto{id=1,nombre="Kou",ciudad= "París", pais= "Francia", coordenaX= 4, coordenaY=9},
-                new Aeropuerto{id=2,nombre="Chat",ciudad= "Venecia", pais= "Italia", coordenaX= 9, coordenaY=1},
-                new Aeropuerto{id=3,nombre="Mar",ciudad= "Vancouver", pais = "Canada", coordenaX= 2, coordenaY=4}
-            };
-        }
- 
+        private readonly AppContext _appContext = new AppContext(); 
         public IEnumerable<Aeropuerto> GetAll()
         {
-            return aeropuerto;
+            return _appContext.Aeropuerto;
         }
  
         public Aeropuerto GetAeropuertoWithId(int id){
-            return aeropuerto.SingleOrDefault(b => b.id == id);
+            return _appContext.Aeropuerto.Find(id);
+        }
+
+        public Aeropuerto Create(Aeropuerto newAeropuerto)
+    {
+        var addAeropuerto = _appContext.Aeropuerto.Add(newAeropuerto);
+        _appContext.SaveChanges();
+        return addAeropuerto.Entity;
+    }
+        public void Delete(int id)
+        {
+           var aeropuerto = _appContext.Aeropuerto.Find(id);
+        if (aeropuerto == null)
+        return;
+        _appContext.Aeropuerto.Remove(aeropuerto);
+        _appContext.SaveChanges();
+        }
+
+        public Aeropuerto Update(Aeropuerto newAeropuerto){
+           var aeropuerto = _appContext.Aeropuerto.Find(newAeropuerto.id);
+        if(aeropuerto != null){
+            aeropuerto.nombre = newAeropuerto.nombre;
+            aeropuerto.ciudad = newAeropuerto.ciudad;
+            aeropuerto.pais = newAeropuerto.pais;
+            aeropuerto.coordenaX = newAeropuerto.coordenaX;
+            aeropuerto.coordenaY = newAeropuerto.coordenaY;
+            //Guardar en base de datos
+            _appContext.SaveChanges();
+        }
+    return aeropuerto;
         }
     }
+
 
 }

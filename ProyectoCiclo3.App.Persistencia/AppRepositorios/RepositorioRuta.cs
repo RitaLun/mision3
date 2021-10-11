@@ -7,26 +7,39 @@ namespace ProyectoCiclo3.App.Persistencia.AppRepositorios
 {
     public class RepositorioRuta
     {
-        List<Ruta> ruta;
- 
- 
-    public RepositorioRuta()
-        {
-            ruta= new List<Ruta>()
-            {
-                new Ruta{id=1,origen=3,destino= 1,tiempoEstimado= 4 },
-                new Ruta{id=2,origen=2,destino= 3,tiempoEstimado= 5},
-                new Ruta{id=3,origen=1,destino= 2,tiempoEstimado= 6}
-            };
-        }
-
+        private readonly AppContext _appContext = new AppContext(); 
         public IEnumerable<Ruta> GetAll()
         {
-            return ruta;
+            return _appContext.Ruta;
         }
  
         public Ruta GetRutaWithId(int id){
-            return ruta.SingleOrDefault(b => b.id == id);
+            return _appContext.Ruta.Find(id);
+        }
+        public Ruta Create(Ruta newRuta )
+    {
+        var addRuta  = _appContext.Ruta.Add(newRuta );
+        _appContext.SaveChanges();
+        return addRuta.Entity;
+    }
+        public void Delete(int id)
+        {
+           var ruta = _appContext.Ruta.Find(id);
+        if (ruta== null)
+        return;
+        _appContext.Ruta.Remove(ruta);
+        _appContext.SaveChanges();
+        }
+        public Ruta Update(Ruta newRuta){
+           var ruta = _appContext.Ruta.Find(newRuta.id);
+        if(ruta != null){
+            ruta.origen = newRuta.origen;
+            ruta.destino = newRuta.destino;
+            ruta.tiempoEstimado = newRuta.tiempoEstimado;
+            //Guardar en base de datos
+            _appContext.SaveChanges();
+        }
+    return ruta;
         }
     }
 }

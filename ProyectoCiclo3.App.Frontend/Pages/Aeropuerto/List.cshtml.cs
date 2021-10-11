@@ -24,6 +24,14 @@ namespace ProyectoCiclo3.App.Frontend.Pages
     {
         Aeropuerto=repositorioAeropuerto.GetAll();
     }
+       public IActionResult OnPost()
+    {
+        if(Aeropuerto.id>0)
+        {
+        repositorioAeropuerto.Delete(Aeropuerto.id);
+        }
+        return RedirectToPage("./List");
+    }
     }
 }
 

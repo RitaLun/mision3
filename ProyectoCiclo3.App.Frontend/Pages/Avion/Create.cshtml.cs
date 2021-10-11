@@ -22,7 +22,7 @@ public IActionResult OnGet(int avionId)
             Avion=repositorioAviones.GetAvionWithId(avionId);
             return Page(); 
         }
-        public IActionResult OnPost()
+public IActionResult OnPost()
         {
             if(!ModelState.IsValid)
             {
@@ -30,7 +30,7 @@ public IActionResult OnGet(int avionId)
             }
             if(Avion.id>0)
             {
-            Avion = repositorioAviones.Update(Avion);
+            Avion = repositorioAviones.Create(Avion);
             }
             return RedirectToPage("./List");
         }
