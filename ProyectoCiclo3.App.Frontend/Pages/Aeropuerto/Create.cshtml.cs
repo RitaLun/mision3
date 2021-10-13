@@ -17,11 +17,12 @@ public FormAeropuertoModel(RepositorioAeropuerto repositorioAeropuerto)
        {
             this.repositorioAeropuerto=repositorioAeropuerto;
        }
-public IActionResult OnGet(int AeropuertoId)
+/*public IActionResult OnGet(int AeropuertoId)
         {
             Aeropuerto=repositorioAeropuerto.GetAeropuertoWithId(AeropuertoId);
             return Page(); 
         }
+        */
         public IActionResult OnPost()
         {
             if(!ModelState.IsValid)

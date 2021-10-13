@@ -1,6 +1,8 @@
+@page
+@model ProyectoCiclo3.App.Frontend.Pages.FormRutaModel
 @{
+   var ruta = Model.Ruta;
 }
- 
 <div class="text-center">
 <form method="POST">
   <label for="origen" class="form-label">Origen:</label>
@@ -8,13 +10,13 @@
         <option value="">Seleccionar un aeropuerto</option>
         @foreach (var aeropuerto in Model.Aeropuerto)
     {
-        <option value="@aeropuerto.id">@aeropuerto.nombre - @aeropuerto.ciudad/@aeropuerto.pais</option>
+        <option value="@aeropuerto.id">@aeropuerto.nombre - @aeropuerto.ciudad @aeropuerto.pais</option>
     }
     </select>
   <label for="destino" class="form-label">Destino:</label>
 <select asp-for="@ruta.destino" class="form-control">
         <option value="">Seleccionar un aeropuerto</option>
-        @foreach (var aeropuerto in Model.Aeropuertos)
+        @foreach (var aeropuerto in Model.Aeropuerto)
     {
         <option value="@aeropuerto.id">@aeropuerto.nombre - @aeropuerto.ciudad/@aeropuerto.pais</option>
     }

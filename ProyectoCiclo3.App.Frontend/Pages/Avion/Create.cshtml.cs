@@ -17,11 +17,11 @@ public FormAvionModel(RepositorioAviones repositorioAviones)
        {
             this.repositorioAviones=repositorioAviones;
        }
-public IActionResult OnGet(int avionId)
+/*public IActionResult OnGet(int avionId)
         {
             Avion=repositorioAviones.GetAvionWithId(avionId);
             return Page(); 
-        }
+        } */
 public IActionResult OnPost()
         {
             if(!ModelState.IsValid)

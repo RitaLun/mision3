@@ -14,7 +14,7 @@ namespace ProyectoCiclo3.App.Frontend.Pages
         private readonly RepositorioAeropuerto repositorioAeropuerto;
         public IEnumerable<Aeropuerto> Aeropuerto {get;set;}
         [BindProperty]
-        public Ruta Ruta {get;set;}
+       public Ruta Ruta {get;set;}
         
     public FormRutaModel(RepositorioRuta repositorioRuta, RepositorioAeropuerto repositorioAeropuerto)
        {

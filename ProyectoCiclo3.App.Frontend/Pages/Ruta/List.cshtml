@@ -14,8 +14,11 @@
             <td>@ruta.tiempoEstimado</td>
             <td>
               <a class="btn btn-info" asp-page="./Details" asp-route-rutaId="@ruta.id"><i class="fas fa-adjust"></i>Ver</a>
-              <a class="btn btn-info" href="">Editar</a>
-              <a class="btn btn-danger" href="">Eliminar</a>
+              <a class="btn btn-info" asp-page="./Edit" asp-route-rutaId="@ruta.id"><i class="fas fa-adjust"></i>Editar</a>
+              <form method="POST">
+                <input type="number" class="d-none" id="id" asp-for="@ruta.id">
+                <button type="submit"class="btn btn-danger">Eliminar</button>
+                 </form>
               </td>
         </tr>
     }
