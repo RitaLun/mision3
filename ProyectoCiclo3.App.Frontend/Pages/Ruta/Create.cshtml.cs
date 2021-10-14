@@ -31,10 +31,7 @@ namespace ProyectoCiclo3.App.Frontend.Pages
             {
                 return Page();
             }
-            if(Ruta.id>0)
-            {
             Ruta = repositorioRuta.Create(Ruta);
-            }
             return RedirectToPage("./List");
         }
     }

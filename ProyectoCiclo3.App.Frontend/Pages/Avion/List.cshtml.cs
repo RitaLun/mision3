@@ -22,7 +22,7 @@ namespace ProyectoCiclo3.App.Frontend.Pages
      }
         public void OnGet()
         {
-             Aviones=repositorioAviones.GetAll();
+            Aviones=repositorioAviones.GetAll();
         }
         public IActionResult OnPost()
     {

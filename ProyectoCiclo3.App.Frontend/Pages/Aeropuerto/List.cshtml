@@ -5,7 +5,7 @@
  
 <h1>Listado de Aeropuerto</h1>
 <table class="table">
-    @foreach (var aeropuerto in Model.Aeropuerto)
+    @foreach (var aeropuerto in Model.Aeropuertos)
     {
         <tr>
             <td>@aeropuerto.id</td>
@@ -15,7 +15,6 @@
             <td>@aeropuerto.coordenaX</td>
             <td>@aeropuerto.coordenaY</td>
             <td>
-
               <a class="btn btn-info" asp-page="./Details" asp-route-aeropuertoId="@aeropuerto.id"><i class="fas fa-adjust"></i>Ver</a>
               <a class="btn btn-info" asp-page="./Edit" asp-route-aeropuertoId="@aeropuerto.id"><i class="fas fa-adjust"></i>Editar</a>
               <form method="POST">

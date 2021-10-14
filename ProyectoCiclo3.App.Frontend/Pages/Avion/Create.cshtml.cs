@@ -28,10 +28,7 @@ public IActionResult OnPost()
             {
                 return Page();
             }
-            if(Avion.id>0)
-            {
             Avion = repositorioAviones.Create(Avion);
-            }
             return RedirectToPage("./List");
         }
     }

@@ -10,7 +10,7 @@
         <option value="">Seleccionar un aeropuerto</option>
         @foreach (var aeropuerto in Model.Aeropuerto)
     {
-        <option value="@aeropuerto.id">@aeropuerto.nombre - @aeropuerto.ciudad/@aeropuerto.pais</option>
+        <option value="@aeropuerto.id">@aeropuerto.nombre - @aeropuerto.ciudad @aeropuerto.pais</option>
     }
     </select>
   <label for="destino" class="form-label">Destino:</label>
@@ -18,7 +18,7 @@
         <option value="">Seleccionar un aeropuerto</option>
         @foreach (var aeropuerto in Model.Aeropuerto)
     {
-        <option value="@aeropuerto.id">@aeropuerto.nombre - @aeropuerto.ciudad/@aeropuerto.pais</option>
+        <option value="@aeropuerto.id"> @aeropuerto.nombre - @aeropuerto.ciudad- @aeropuerto.pais</option>
     }
     </select>
   <label for="tiempo Estimado" class="form-label">Tiempo Estimado:</label>

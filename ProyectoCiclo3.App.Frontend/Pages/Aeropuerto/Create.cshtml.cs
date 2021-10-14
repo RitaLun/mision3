@@ -29,10 +29,7 @@ public FormAeropuertoModel(RepositorioAeropuerto repositorioAeropuerto)
             {
                 return Page();
             }
-            if(Aeropuerto.id>0)
-            {
             Aeropuerto = repositorioAeropuerto.Create(Aeropuerto);
-            }
             return RedirectToPage("./List");
         }
     }
