@@ -14,17 +14,18 @@ namespace ProyectoCiclo3.App.Frontend.Pages
         [BindProperty]
         public Ruta Ruta {get;set;}
         private readonly RepositorioAeropuerto repositorioAeropuerto;
-        public IEnumerable<Aeropuerto> Aeropuerto {get;set;}
+        public IEnumerable<Aeropuerto> Aeropuertos {get;set;}
 
     public EditRutaModel(RepositorioRuta repositorioRuta, RepositorioAeropuerto repositorioAeropuerto)
        {
             this.repositorioRuta=repositorioRuta;
             this.repositorioAeropuerto=repositorioAeropuerto;
        }
-        public void OnGet()
-    {
-        Aeropuerto=repositorioAeropuerto.GetAll();
-    }
+       public IActionResult OnGet(int rutaId)
+        {
+            Ruta = repositorioRuta.GetRutaWithId(rutaId);
+            return Page(); 
+        }
         public IActionResult OnPost()
         {
             if(!ModelState.IsValid)
@@ -38,4 +39,5 @@ namespace ProyectoCiclo3.App.Frontend.Pages
             return RedirectToPage("./List");
         }
     }
+    
 }

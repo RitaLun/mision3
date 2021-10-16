@@ -12,7 +12,7 @@ namespace ProyectoCiclo3.App.Frontend.Pages
     public class DetailsAeropuertoModel : PageModel
     {
        private readonly RepositorioAeropuerto repositorioAeropuerto;
-              public Aeropuerto Aeropuerto {get;set;}
+       public Aeropuerto Aeropuerto {get;set;}
  
         public DetailsAeropuertoModel(RepositorioAeropuerto repositorioAeropuerto)
        {
